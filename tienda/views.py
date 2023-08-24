@@ -4,8 +4,6 @@ from .models import Producto, Categoria
 from .forms import ProductoForm, CategoriaForm
 from django.urls import reverse_lazy
 
-# Resto de tus vistas aquí
-
 
 class BuscarView(ListView):
     model = Producto
@@ -19,7 +17,7 @@ class BuscarView(ListView):
         return Producto.objects.none()
 
 class IndexView(TemplateView):
-    model = Categoria  # Asegúrate de usar el modelo correcto
+    model = Categoria  
     template_name = 'tienda/index.html'
     context_object_name = 'categorias'
 
