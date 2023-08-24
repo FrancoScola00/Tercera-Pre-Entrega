@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tienda de Ropa{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Tienda de Ropa</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'tienda:index' %}">Inicio</a></li>
+                <li><a href="{% url 'tienda:agregar_producto' %}">Agregar Producto</a></li>
+                <li><a href="{% url 'tienda:agregar_categoria' %}">Agregar Categoría</a></li>
+                <li><a href="{% url 'tienda:eliminar_categoria' 0 %}">Eliminar Categoria {{ categoria.nombre }}</a></li>
+                <li><a href="{% url 'tienda:buscar' %}">Buscar Producto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
