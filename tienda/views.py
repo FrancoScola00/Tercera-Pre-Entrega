@@ -1,10 +1,20 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, DeleteView, TemplateView
+from django.views.generic import ListView, CreateView, DeleteView, TemplateView, View
 from .models import Producto, Categoria
 from .forms import ProductoForm, CategoriaForm
 from django.urls import reverse_lazy
+from django.views import View
 
-
+class ListaCategoriasView(View):
+    def get(self, request):
+        categorias = Categoria.objects.all()  
+        return render(request, 'tienda/lista_categorias.html', {'categorias': categorias})
+    
+class ListaProductosView(View):
+    def get(self, request):
+        productos = Producto.objects.all()  
+        return render(request, 'tienda/lista_productos.html', {'productos': productos})
+    
 class BuscarView(ListView):
     model = Producto
     template_name = 'tienda/buscar.html'

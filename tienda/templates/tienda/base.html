@@ -15,12 +15,15 @@
                 <li><a href="{% url 'tienda:agregar_categoria' %}">Agregar Categoría</a></li>
                 <li><a href="{% url 'tienda:eliminar_categoria' 0 %}">Eliminar Categoria {{ categoria.nombre }}</a></li>
                 <li><a href="{% url 'tienda:buscar' %}">Buscar Producto</a></li>
+                <li><a href="{% url 'tienda:lista_productos' %}">Lista de Productos</a></li>
+                <li><a href="{% url 'tienda:lista_categorias' %}">Lista de Categorías</a></li>
             </ul>
         </nav>
     </header>
     <main>
         {% block content %}
         {% endblock %}
+        
     </main>
 </body>
 </html>
